@@ -5,27 +5,11 @@ import streamlit as st
 #https://stackoverflow.com/questions/18885175/read-a-zipped-file-as-a-pandas-dataframe 
 
 import pandas as pd
-url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
-#url='https://drive.google.com/file/d/1DlpbMAqIB50aJVyMRES_J_CnxYdRXH-p/view?usp=sharing'
-df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
-
 import os
 
 from transformers import pipeline
 
 import pandas as pd
-
-
-
-opts = df['key'].tolist()
-opts_c = []
-
-for op in opts:
-    if op not in opts_c:
-        opts_c.append(op)
-
-opts = opts_c 
-opts.sort()
 
 st.set_page_config(
     page_title="Text Generation App", page_icon=":pencil2:", layout="wide"
@@ -39,9 +23,56 @@ st.write(
 
 # Initialize the Hugging Face model
 #generator = pipeline("text-generation", model="gpt2")
+opts_1 = ['Early_Church_Fathers', 'Medieval_Scholasticism', 'Protestant_Reformers', 'Evangelicalism']
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
+option1 = st.sidebar.selectbox(
+    "Select period of interest",
+    opts_1,
+)
+select_button1 = st.sidebar.button("Select")
+
+if select_button1:
+    if option1 == 'Early_Church_Fathers':
+        opts_2 = ['Saint Augustine', 'Saint John Chrysosthom']
+        option2 = st.sidebar.selectbox(
+            "Select author of interest",
+            opts_2,
+        )
+        select_button2 = st.sidebar.button("Select")
+
+if select_button2:
+    if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom')
+    opts_3 ['Homilies_On_Mathew', 'Homilies_On_Acts']
+    option3 = st.sidebar.selectbox(
+        "Select document of interest",
+        opts_3,
+    )
+    select_button3 = st.sidebar.button("Select")
+    if select_button3 and (option3 == 'Homilies_On_Mathew'):
+        url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+
+
+
+
+#url='https://drive.google.com/file/d/1DlpbMAqIB50aJVyMRES_J_CnxYdRXH-p/view?usp=sharing'
+df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+
+
+
+
+opts = df['key'].tolist()
+opts_c = []
+
+for op in opts:
+    if op not in opts_c:
+        opts_c.append(op)
+
+opts = opts_c 
+opts.sort()
+
+
 input_text = st.sidebar.text_input(label="User query", value="")
 option = st.sidebar.selectbox(
     "Select topic of interest?",
