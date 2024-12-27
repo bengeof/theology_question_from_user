@@ -35,15 +35,15 @@ if st.session_state.stage == 0:
         "Select period of interest",
         opts_1,
     )
-    
+    sel_cr1 =option1
     select_button1 = st.sidebar.button("Select1", on_click=set_state, args=[1])
 
     if option1 is None:
         set_state(0)
 
 if st.session_state.stage >= 1:
-    if option1 == 'Early_Church_Fathers':
-        opts_2 = [None,'Saint Augustine', 'Saint John Chrysosthom']
+    if sel_cr1 == 'Early_Church_Fathers':
+        opts_2 = [None, 'Saint Augustine', 'Saint John Chrysosthom']
         option2 = st.sidebar.selectbox(
             "Select author of interest",
             opts_2,
