@@ -81,20 +81,20 @@ if generate_button:
     if opts_1 == 'Early_Church_Fathers' and opts_2 == 'Saint John Chrysosthom':
         if opts_3 == 'Homilies_On_Acts':
             url='https://drive.google.com/file/d/11KE-GoUlNuiLHj-3MwQ_plZ-3kwXezj5/view?usp=sharing'
-    print(url)
+    
 
-    df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+    df_new = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
 
     #hf_token ="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"
 
     #os.environ["HUGGINGFACEHUB_API_TOKEN"]= hf_token # replace hf_token with your HuggingFace API-token 
                 
-    df1 = df.loc[df['key'] == option]
+    df11 = df_new.loc[df_new['key'] == option]
 
-    print(df1)
+    
 
-    hi = df1['text'].tolist()           
+    hi = df11['text'].tolist()           
 
 
 
