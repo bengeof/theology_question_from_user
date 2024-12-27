@@ -44,14 +44,14 @@ if select_button1:
 
 if select_button2:
     if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom'):
-    opts_3 = ['Homilies_On_Mathew', 'Homilies_On_Acts']
-    option3 = st.sidebar.selectbox(
-        "Select document of interest",
-        opts_3,
-    )
-    select_button3 = st.sidebar.button("Select")
-    if select_button3 and (option3 == 'Homilies_On_Mathew'):
-        url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+        opts_3 = ['Homilies_On_Mathew', 'Homilies_On_Acts']
+        option3 = st.sidebar.selectbox(
+            "Select document of interest",
+            opts_3,
+        )
+        select_button3 = st.sidebar.button("Select")
+        if select_button3 and (option3 == 'Homilies_On_Mathew'):
+            url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
 
 
 
