@@ -58,7 +58,7 @@ if st.session_state.stage == 0:
                     option3 = st.sidebar.selectbox(
                                 "Select document of interest",
                                 opts_3,
-                            )
+                    )
                             
                     select_button3 = st.sidebar.button("Select3")
                             
