@@ -42,22 +42,46 @@ st.write(
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
+opts_1 = [None, 'Early_Church_Fathers', 'Medieval_Scholasticism', 'Protestant_Reformers', 'Evangelicalism']
+
+    # Create a sidebar for input parameters
+st.sidebar.title("User input")
+option1 = st.sidebar.selectbox(
+        "Select period of interest",
+        opts_1,
+)
+
+opts_2 = [None, 'Saint Augustine', 'Saint John Chrysosthom']
+option2 = st.sidebar.selectbox(
+                "Select author of interest",
+                opts_2,
+)
+
+opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
+option3 = st.sidebar.selectbox("Select document of interest",
+                                opts_3,
+)
+
 input_text = st.sidebar.text_input(label="User query", value="")
 option = st.sidebar.selectbox(
     "Select topic of interest?",
     opts,
 )
 
-
-st.selectbox('Nested Selectbox', options={
-    'Option 1': ['Option 1.1', 'Option 1.2', 'Option 1.3'],
-    'Option 2': ['Option 2.1', 'Option 2.2', 'Option 2.3'],
-    'Option 3': ['Option 3.1', 'Option 3.2', 'Option 3.3'],
-})
-
 generate_button = st.sidebar.button("Generate")
 
+
+
+
+
 if generate_button:
+    if opts_1 == 'Early_Church_Fathers' and opts_2 == 'Saint John Chrysosthom':
+        if opts_3 == 'Homilies_On_Mathew':
+            url = 'https://drive.google.com/file/d/1TMRVMdwXkFRzdHV-4VXnG5Ic4ozxV_tU/view?usp=sharing'
+    print(url)
+
+    df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+
 
     #hf_token ="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"
 
