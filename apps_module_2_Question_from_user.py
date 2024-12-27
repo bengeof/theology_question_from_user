@@ -31,7 +31,7 @@ option1 = st.sidebar.selectbox(
     "Select period of interest",
     opts_1,
 )
-select_button1 = st.sidebar.button("Select")
+select_button1 = st.sidebar.button("Select1")
 
 if select_button1:
     if option1 == 'Early_Church_Fathers':
@@ -40,7 +40,7 @@ if select_button1:
             "Select author of interest",
             opts_2,
         )
-        select_button2 = st.sidebar.button("Select")
+        select_button2 = st.sidebar.button("Select2")
 
         if select_button2:
             if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom'):
@@ -49,7 +49,7 @@ if select_button1:
                     "Select document of interest",
                     opts_3,
                 )
-                select_button3 = st.sidebar.button("Select")
+                select_button3 = st.sidebar.button("Select3")
                 if select_button3 and (option3 == 'Homilies_On_Mathew'):
                     url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
 
