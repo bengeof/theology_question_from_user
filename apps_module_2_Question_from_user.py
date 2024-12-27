@@ -183,7 +183,7 @@ if generate_button:
         
             prompt = PromptTemplate.from_template(
             """
-            Strictly based on the text given below answer the question '"""+str(input_text)+"""' by referencing passages from the text:
+            Strictly based on the text given below answer the question '"""+str(input_text)+"""'
             
             {context}
             
