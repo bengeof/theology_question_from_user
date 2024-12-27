@@ -44,7 +44,7 @@ if select_button1:
 
 if select_button2:
     if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom'):
-    opts_3 ['Homilies_On_Mathew', 'Homilies_On_Acts']
+    opts_3 = ['Homilies_On_Mathew', 'Homilies_On_Acts']
     option3 = st.sidebar.selectbox(
         "Select document of interest",
         opts_3,
