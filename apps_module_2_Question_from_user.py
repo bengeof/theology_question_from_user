@@ -52,19 +52,19 @@ if st.session_state.stage == 0:
 
         
 
-            if select_button1 and select_button2:
+            if select_button2:
                 if option2 == 'Saint John Chrysosthom':
-                            opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
-                            option3 = st.sidebar.selectbox(
+                    opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
+                    option3 = st.sidebar.selectbox(
                                 "Select document of interest",
                                 opts_3,
                             )
                             
-                            select_button3 = st.sidebar.button("Select3")
+                    select_button3 = st.sidebar.button("Select3")
                             
                         
-                            if select_button3 and (option3 == 'Homilies_On_Mathew'):
-                                url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+                    if select_button3 and (option3 == 'Homilies_On_Mathew'):
+                        url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
                     
 
 
@@ -76,29 +76,31 @@ if st.session_state.stage == 0:
 
 
                             #url='https://drive.google.com/file/d/1DlpbMAqIB50aJVyMRES_J_CnxYdRXH-p/view?usp=sharing'
-                            df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+                        df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
 
 
 
-                            opts = df['key'].tolist()
-                            opts_c = []
+                        opts = df['key'].tolist()
+                        opts_c = []
 
-                            for op in opts:
-                                if op not in opts_c:
-                                    opts_c.append(op)
+                        for op in opts:
+                            if op not in opts_c:
+                                opts_c.append(op)
 
-                            opts = opts_c 
-                            opts.sort()
+                        opts = opts_c 
+                        opts.sort()
 
 
-                            input_text = st.sidebar.text_input(label="User query", value="")
-                            option = st.sidebar.selectbox(
+                        input_text = st.sidebar.text_input(label="User query", value="")
+                        option = st.sidebar.selectbox(
                                 "Select topic of interest?",
                                 opts,
                             )
 
-                            generate_button = st.sidebar.button("Generate")
+                        generate_button = st.sidebar.button("Generate")
+
+                        if generate_button:
 
                             if generate_button:
 
