@@ -20,38 +20,50 @@ st.title("Module_2_User_query")
 st.write(
     "This application generates question answer based on the topic choosen on the author's text of interest."
 )
+if 'stage' not in st.session_state:
+    st.session_state.stage = 0
 
-# Initialize the Hugging Face model
-#generator = pipeline("text-generation", model="gpt2")
-opts_1 = ['Early_Church_Fathers', 'Medieval_Scholasticism', 'Protestant_Reformers', 'Evangelicalism']
+def set_state(i):
+    st.session_state.stage = i
 
-# Create a sidebar for input parameters
-st.sidebar.title("User input")
-option1 = st.sidebar.selectbox(
-    "Select period of interest",
-    opts_1,
-)
-select_button1 = st.sidebar.button("Select1")
+if st.session_state.stage == 0:
+    opts_1 = ['Early_Church_Fathers', 'Medieval_Scholasticism', 'Protestant_Reformers', 'Evangelicalism']
 
-if select_button1:
+    # Create a sidebar for input parameters
+    st.sidebar.title("User input")
+    option1 = st.sidebar.selectbox(
+        "Select period of interest",
+        opts_1,
+    )
+    
+    select_button1 = st.sidebar.button("Select1", on_click=set_state, args=[1])
+
+if st.session_state.stage >= 1:
     if option1 == 'Early_Church_Fathers':
         opts_2 = ['Saint Augustine', 'Saint John Chrysosthom']
         option2 = st.sidebar.selectbox(
             "Select author of interest",
             opts_2,
         )
-        select_button2 = st.sidebar.button("Select2")
+        select_button2 = st.sidebar.button("Select2", on_change=set_state, args=[2])
 
-        if select_button2:
-            if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom'):
+if st.session_state.stage >= 2:
+    if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom'):
                 opts_3 = ['Homilies_On_Mathew', 'Homilies_On_Acts']
                 option3 = st.sidebar.selectbox(
                     "Select document of interest",
                     opts_3,
                 )
-                select_button3 = st.sidebar.button("Select3")
+                
+                select_button3 = st.sidebar.button("Select3", on_change=set_state, args=[3])
                 if select_button3 and (option3 == 'Homilies_On_Mathew'):
                     url='https://drive.google.com/file/d/17oIB7dv1jxwe3mER21ZFQYFLSFwQ9lwh/view?usp=sharing'
+        
+
+
+# Initialize the Hugging Face model
+#generator = pipeline("text-generation", model="gpt2")
+
 
 
 
