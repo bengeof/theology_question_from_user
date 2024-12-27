@@ -35,7 +35,7 @@ if st.session_state.stage == 0:
         "Select period of interest",
         opts_1,
     )
-    sel_cr1 =option1
+    st.session_state.sel_cr1 = option1
     select_button1 = st.sidebar.button("Select1", on_click=set_state, args=[1])
 
     if option1 is None:
