@@ -52,7 +52,7 @@ if st.session_state.stage == 0:
 
         
 
-            if select_button2:
+            if select_button1 and select_button2:
                 if option2 == 'Saint John Chrysosthom':
                             opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
                             option3 = st.sidebar.selectbox(
