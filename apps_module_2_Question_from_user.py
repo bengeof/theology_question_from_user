@@ -37,24 +37,22 @@ if st.session_state.stage == 0:
     )
 
     
-    select_button1 = st.sidebar.button("Select1", on_click=set_state, args=[1])
+    select_button1 = st.sidebar.button("Select1")
 
-    if option1 is None:
-        set_state(0)
+    
 
-    if st.session_state.stage >= 1:
+    if select_button1:
         if option1 == 'Early_Church_Fathers':
             opts_2 = [None, 'Saint Augustine', 'Saint John Chrysosthom']
             option2 = st.sidebar.selectbox(
                 "Select author of interest",
                 opts_2,
             )
-            select_button2 = st.sidebar.button("Select2", on_change=set_state, args=[2])
+            select_button2 = st.sidebar.button("Select2")
 
-        if option2 is None:
-            set_state(1)
+        
 
-    if st.session_state.stage >= 2:
+    if select_button2:
         if (option1 == 'Early_Church_Fathers') and (option2 == 'Saint John Chrysosthom'):
                     opts_3 = [None,'Homilies_On_Mathew', 'Homilies_On_Acts']
                     option3 = st.sidebar.selectbox(
@@ -62,7 +60,7 @@ if st.session_state.stage == 0:
                         opts_3,
                     )
                     
-                    select_button3 = st.sidebar.button("Select3", on_change=set_state, args=[3])
+                    select_button3 = st.sidebar.button("Select3")
                     if option1 is None:
                         set_state(2)
                 
