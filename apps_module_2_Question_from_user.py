@@ -63,28 +63,30 @@ generate_button = st.sidebar.button("Generate")
 
 
 
-
+url = ''
 if generate_button:
-    if opts_1 == 'Chrysosthom':
-        url='https://drive.google.com/file/d/1TMRVMdwXkFRzdHV-4VXnG5Ic4ozxV_tU/view?usp=sharing'
-    if opts_1 == 'Augustine':
-        url='https://drive.google.com/file/d/1IoWD1NSlYLA9VNcC3BdfErV1EXGoCFBD/view?usp=sharing'
+    if option1 == 'Chrysosthom':
+        url='https://drive.google.com/file/d/1dZuiBxM4L7CQM4tSoneaZD7URC27zPNz/view?usp=sharing'
+    if option1 == 'Augustine':
+        url='https://drive.google.com/file/d/1hgqLQEAQSdLBWK0SXbCMrq2y_pho4Unj/view?usp=sharing'
     
 
-    df_new = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
+    df = pd.read_csv('https://drive.usercontent.google.com/download?id={}&export=download&authuser=0&confirm=t'.format(url.split('/')[-2]), compression='zip', sep='##', names=['text', 'key', 'period' , 'title'])
 
-
+    
     #hf_token ="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"
 
     #os.environ["HUGGINGFACEHUB_API_TOKEN"]= hf_token # replace hf_token with your HuggingFace API-token 
                 
-    df11 = df_new.loc[df_new['key'] == option]
+    df1 = df.loc[df['key'] == option]
+
+    print(option)
+
+    print(df1)
+
+    hi = df1['text'].tolist()         
 
     
-
-    hi = df11['text'].tolist()           
-
-
 
     arts = ''
     c_l = []
