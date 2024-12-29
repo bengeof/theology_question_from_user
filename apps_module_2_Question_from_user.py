@@ -42,7 +42,7 @@ st.write(
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
-opts_1 = [None, 'Chrysosthom', 'Augustine']
+opts_1 = [None, 'John_Chrysostom_Early_Church', 'Augustine_Early_Church', 'Thomas_Aquinas_Medieval_Scholasticism', 'John_Calvin_Protestant_Reformer', 'Charles_Spurgeon_Evangelicalism']
 
     # Create a sidebar for input parameters
 st.sidebar.title("User input")
