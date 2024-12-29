@@ -32,7 +32,7 @@ st.set_page_config(
 )
 
 # Add a title and a description
-st.title("Module_2_User_query")
+st.title("Module_1_Input_your_query_for_the_Christian_thinker")
 st.write(
     "This application generates question answer based on the topic choosen on the author's text of interest."
 )
