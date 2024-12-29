@@ -116,6 +116,10 @@ if generate_button:
         os.remove('modul1_inter2.txt')
     except:
         pass
+    try:
+        os.remove('generated_summary_module36.txt')
+    except:
+        pass
 
     import time
 
