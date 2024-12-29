@@ -42,12 +42,12 @@ st.write(
 
 # Create a sidebar for input parameters
 st.sidebar.title("User input")
-opts_1 = [None, 'Chrysosthom', 'Augustine', 'Spurgeon']
+opts_1 = [None, 'Chrysosthom', 'Augustine']
 
     # Create a sidebar for input parameters
 st.sidebar.title("User input")
 option1 = st.sidebar.selectbox(
-        "Select period of interest",
+        "Select author of interest",
         opts_1,
 )
 
